@@ -5,7 +5,8 @@
 <title>Just For You</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 
 <style>
 /* LIGHT MODE */
@@ -62,10 +63,12 @@ body {
 
 /* TEXT */
 .hey {
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  letter-spacing: 1px;
   margin-bottom: 6px;
+  color: #6a2432;
 }
 
 .name {
@@ -79,13 +82,21 @@ body {
 }
 
 p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
+  color: #5a1f2b;
 }
 
 .quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
   font-size: 17px;
+  line-height: 1.75;
   margin-bottom: 10px;
+  color: #5a1f2b;
 }
 
 /* BUTTONS */
@@ -152,6 +163,14 @@ img {
     background: #ff7a9c;
   }
 }
+@media (prefers-color-scheme: dark) {
+  .hey,
+  .quote,
+  p {
+    color: #f0c6cf;
+  }
+}
+
 </style>
 </head>
 
