@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Just For You</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+.box {
+  max-width: 420px;
+  padding: 30px;
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 46px;
+  margin-bottom: 15px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+button {
+  background: #fff;
+  color: #ff6b81;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+img {
+  width: 100%;
+  border-radius: 18px;
+  margin-top: 15px;
+}
+
+/* Heartbeat */
+.heart {
+  font-size: 48px;
+  animation: beat 1.2s infinite;
+}
+
+@keyframes beat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.15); }
+}
+
+/* Fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Audio -->
+<audio id="bgMusic" src="music.mp3" loop></audio>
+<audio id="typeSound" src="typing.mp3"></audio>
+
+<!-- PAGE 1 -->
+<div class="box" id="page1">
+  <h1 id="typingText"></h1>
+  <p>I wanted to tell you something… gently.</p>
+  <button onclick="go(2)">Continue →</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="box hidden" id="page2">
+  <p>Quick question 😊</p>
+  <p>Do you believe some people quietly make days better?</p>
+  <button onclick="go(3)">Yes 💫</button>
+  <button onclick="go(3)">I do 💕</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="box hidden" id="page3">
+  <p>A small surprise…</p>
+  <img src="photo.jpg">
+  <p>This moment matters to me.</p>
+  <button onclick="go(4)">Continue →</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="box hidden" id="page4">
+  <div class="heart">❤️</div>
+  <p>I’ve been meaning to ask you…</p>
+  <h1 style="font-size:34px;">Will you be my Valentine?</h1>
+
+  <button onclick="yes()">Yes 💘</button>
+  <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
+</div>
+
+<!-- FINAL (YES ONLY) -->
+<div class="box hidden" id="final">
+  <img src="celebration.gif">
+  <h1>❤️</h1>
+  <p>
+    Thank you for saying yes.<br>
+    It truly means a lot to me.
+  </p>
+  <p>
+    I care about you deeply.<br>
+    Love you.
+  </p>
+</div>
+
+<script>
+/* Typing effect */
+const text = "Hey, HER_NAME 💕";
+let i = 0;
+function type() {
+  if (i < text.length) {
+    document.getElementById("typingText").innerHTML += text.charAt(i);
+    document.getElementById("typeSound").play();
+    i++;
+    setTimeout(type, 120);
+  }
+}
+type();
+
+/* Music starts on first tap */
+document.body.addEventListener('click', () => {
+  document.getElementById('bgMusic').play();
+}, { once: true });
+
+function go(n) {
+  document.querySelectorAll('.box').forEach(b => b.classList.add('hidden'));
+  document.getElementById('page' + n).classList.remove('hidden');
+}
+
+function yes() {
+  document.querySelectorAll('.box').forEach(b => b.classList.add('hidden'));
+  document.getElementById('final').classList.remove('hidden');
+}
+
+function moveNo() {
+  const b = document.getElementById('noBtn');
+  b.style.position = 'absolute';
+  b.style.left = Math.random() * 70 + '%';
+  b.style.top = Math.random() * 70 + '%';
+}
+</script>
+
+</body>
+</html>
