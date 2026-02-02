@@ -23,17 +23,19 @@ body {
 
 .box {
   max-width: 420px;
-  padding: 30px;
+  padding: 28px;
   opacity: 0;
   animation: fadeIn 1.2s forwards;
 }
 
-.hidden { display: none; }
+.hidden {
+  display: none;
+}
 
 h1 {
   font-family: 'Dancing Script', cursive;
   font-size: 48px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 p {
@@ -41,6 +43,13 @@ p {
   line-height: 1.6;
 }
 
+/* Quote styling */
+.quote {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
 button {
   background: #fff;
   color: #ff6b81;
@@ -48,14 +57,17 @@ button {
   padding: 12px 26px;
   border-radius: 25px;
   font-size: 16px;
-  margin-top: 15px;
+  margin-top: 14px;
   cursor: pointer;
 }
 
+/* Image fix */
 img {
   width: 100%;
+  max-height: 260px;
+  object-fit: cover;
   border-radius: 18px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 /* Heartbeat */
@@ -85,39 +97,50 @@ img {
 <audio id="bgMusic" src="music.mp3" loop></audio>
 <audio id="typeSound" src="typing.mp3"></audio>
 
-<!-- PAGE 1: Greeting -->
+<!-- PAGE 1 -->
 <div class="box" id="page1">
   <h1 id="typingText"></h1>
-  <p>I made something small for you.  
-     Just take a moment…</p>
+  <p>I made something small for you.<br>Just take a moment…</p>
   <button onclick="go(2)">Continue →</button>
 </div>
 
 <!-- QUOTE 1 -->
 <div class="box hidden" id="page2">
-  <p>With you, even the simplest moments feel warm and steady, like the start of a beautiful journey.</p>
-  <img src="photo1.jpg">
+  <p class="quote">
+    With you, even the simplest moments feel warm and steady,
+    like the start of a beautiful journey.
+  </p>
+  <img src="photo1.jpeg">
   <button onclick="go(3)">Next →</button>
 </div>
 
 <!-- QUOTE 2 -->
 <div class="box hidden" id="page3">
-  <p>Whenever the world feels heavy, being with you feels like coming home into the safest hug.</p>
-  <img src="photo2.jpg">
+  <p class="quote">
+    Whenever the world feels heavy, being with you feels
+    like coming home into the safest hug.
+  </p>
+  <img src="photo2.jpeg">
   <button onclick="go(4)">Next →</button>
 </div>
 
 <!-- QUOTE 3 (cute & funny) -->
 <div class="box hidden" id="page4">
-  <p>I didn’t plan on falling for you… but you smiled, laughed, and here I am, completely gone.</p>
+  <p class="quote">
+    I didn’t plan on falling for you…
+    but you smiled, laughed, and here I am, completely gone.
+  </p>
   <img src="photo3.jpg">
   <button onclick="go(5)">Next →</button>
 </div>
 
 <!-- QUOTE 4 (romantic & emotional) -->
 <div class="box hidden" id="page5">
-  <p>You don’t just light up my world, you rule it. My heart chose you, my queen, every single day.</p>
-  <img src="photo4.jpg">
+  <p class="quote">
+    You don’t just light up my world —
+    my heart chose you, every single day.
+  </p>
+  <img src="photo4.jpeg">
   <button onclick="go(6)">Continue →</button>
 </div>
 
@@ -130,24 +153,32 @@ img {
   <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
 </div>
 
-<!-- FINAL YES -->
-<div class="box hidden" id="final">
+<!-- PAGE 7: THANK YOU -->
+<div class="box hidden" id="page7">
   <img src="dancing.gif">
-  <h1>❤️</h1>
+  <h1>Thank you Babelu 💖</h1>
   <p>
     Thank you for saying yes.<br>
-    It truly means a lot to me.
+    This moment truly means a lot to me.
   </p>
+  <button onclick="go(8)">Continue →</button>
+</div>
+
+<!-- PAGE 8: LOVE YOU -->
+<div class="box hidden" id="page8">
+  <img src="photo5.jpeg">
+  <h1>Love you Babelu ❤️</h1>
   <p>
     I’m really happy I asked.<br>
-    Love you.
+    And even happier that you’re here.
   </p>
 </div>
 
 <script>
-/* Typing */
+/* Typing animation */
 const text = "Suvvulu 💕💕";
 let i = 0;
+
 function type() {
   if (i < text.length) {
     document.getElementById("typingText").innerHTML += text.charAt(i);
@@ -170,7 +201,7 @@ function go(n) {
 
 function yes() {
   document.querySelectorAll('.box').forEach(b => b.classList.add('hidden'));
-  document.getElementById('final').classList.remove('hidden');
+  document.getElementById('page7').classList.remove('hidden');
 }
 
 function moveNo() {
