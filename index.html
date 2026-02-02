@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
-/* ---------- LIGHT MODE ---------- */
+/* LIGHT MODE */
 body {
   margin: 0;
   height: 100vh;
@@ -24,7 +24,7 @@ body {
   overflow: hidden;
 }
 
-/* ---------- FLOATING HEARTS ---------- */
+/* FLOATING HEARTS */
 .hearts {
   position: fixed;
   inset: 0;
@@ -40,19 +40,15 @@ body {
 }
 
 @keyframes floatUp {
-  from {
-    transform: translateY(100vh) scale(0.8);
-  }
-  to {
-    transform: translateY(-10vh) scale(1.2);
-  }
+  from { transform: translateY(100vh) scale(0.8); }
+  to { transform: translateY(-10vh) scale(1.2); }
 }
 
-/* ---------- CARD ---------- */
+/* CARD */
 .box {
   max-width: 420px;
   padding: 28px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(255,255,255,0.18);
   border-radius: 24px;
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 40px rgba(0,0,0,0.12);
@@ -64,7 +60,7 @@ body {
 
 .hidden { display: none; }
 
-/* ---------- TEXT ---------- */
+/* TEXT */
 .hey {
   font-size: 18px;
   letter-spacing: 2px;
@@ -78,8 +74,8 @@ body {
   margin-bottom: 12px;
   color: #7a2434;
   text-shadow:
-    0 0 8px rgba(255, 160, 180, 0.6),
-    0 0 18px rgba(255, 160, 180, 0.4);
+    0 0 8px rgba(255,160,180,0.6),
+    0 0 18px rgba(255,160,180,0.4);
 }
 
 p {
@@ -92,7 +88,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* ---------- BUTTONS ---------- */
+/* BUTTONS */
 button {
   background: #7a2434;
   color: #fff;
@@ -104,7 +100,7 @@ button {
   cursor: pointer;
 }
 
-/* ---------- IMAGES ---------- */
+/* IMAGES */
 img {
   width: 100%;
   max-height: 260px;
@@ -113,7 +109,7 @@ img {
   margin-top: 12px;
 }
 
-/* ---------- HEART BEAT ---------- */
+/* HEART BEAT */
 .heart {
   font-size: 46px;
   animation: beat 1.2s infinite;
@@ -126,13 +122,13 @@ img {
   75% { transform: scale(1.15); }
 }
 
-/* ---------- FADE ---------- */
+/* FADE */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ---------- DARK MODE ---------- */
+/* DARK MODE */
 @media (prefers-color-scheme: dark) {
   body {
     background:
@@ -142,14 +138,14 @@ img {
   }
 
   .box {
-    background: rgba(30, 10, 18, 0.55);
+    background: rgba(30,10,18,0.55);
   }
 
   .name {
     color: #ffb3c6;
     text-shadow:
-      0 0 10px rgba(255, 120, 150, 0.7),
-      0 0 22px rgba(255, 120, 150, 0.5);
+      0 0 10px rgba(255,120,150,0.7),
+      0 0 22px rgba(255,120,150,0.5);
   }
 
   button {
@@ -161,10 +157,8 @@ img {
 
 <body>
 
-<!-- Floating Hearts -->
 <div class="hearts" id="hearts"></div>
 
-<!-- Audio -->
 <audio id="bgMusic" src="music.mp3" loop></audio>
 <audio id="typeSound" src="typing.mp3"></audio>
 
@@ -176,27 +170,42 @@ img {
   <button onclick="go(2)">Continue →</button>
 </div>
 
-<!-- QUOTES -->
+<!-- QUOTE 1 -->
 <div class="box hidden" id="page2">
-  <p class="quote">With you, even the simplest moments feel warm and steady.</p>
+  <p class="quote">
+    With you, even the simplest moments feel warm and steady,
+    like the start of a beautiful journey.
+  </p>
   <img src="photo1.jpeg">
   <button onclick="go(3)">Next →</button>
 </div>
 
+<!-- QUOTE 2 -->
 <div class="box hidden" id="page3">
-  <p class="quote">Whenever the world feels heavy, being with you feels like home.</p>
+  <p class="quote">
+    Whenever the world feels heavy, being with you feels
+    like coming home into the safest hug.
+  </p>
   <img src="photo2.jpeg">
   <button onclick="go(4)">Next →</button>
 </div>
 
+<!-- QUOTE 3 -->
 <div class="box hidden" id="page4">
-  <p class="quote">I didn’t plan on falling for you… but here we are 😄</p>
+  <p class="quote">
+    I didn’t plan on falling for you…
+    but you smiled, laughed, and here I am, completely gone.
+  </p>
   <img src="photo3.jpg">
   <button onclick="go(5)">Next →</button>
 </div>
 
+<!-- QUOTE 4 -->
 <div class="box hidden" id="page5">
-  <p class="quote">Some people quietly become everything.</p>
+  <p class="quote">
+    You don’t just light up my world, you rule it.
+    My heart chose you, every single day.
+  </p>
   <img src="photo4.jpeg">
   <button onclick="go(6)">Continue →</button>
 </div>
@@ -220,13 +229,13 @@ img {
 
 <!-- LOVE YOU -->
 <div class="box hidden" id="page8">
-  <img src="photo5.jpeg">
+  <img src="photo5.jpg">
   <h1 class="name">Love you Babelu ❤️</h1>
-  <p>I’m really happy I asked.</p>
+  <p>I’m really happy I asked.<br>
+    And even happier that you’re here.</p>
 </div>
 
 <script>
-/* Typing */
 const text = "Suvvulu 💕💕";
 let i = 0;
 
@@ -240,7 +249,7 @@ function type() {
 }
 type();
 
-/* Floating hearts generator */
+/* Floating hearts */
 const hearts = document.getElementById('hearts');
 for (let i = 0; i < 14; i++) {
   const h = document.createElement('div');
@@ -252,7 +261,6 @@ for (let i = 0; i < 14; i++) {
   hearts.appendChild(h);
 }
 
-/* Music */
 document.body.addEventListener('click', () => {
   document.getElementById('bgMusic').play();
 }, { once: true });
