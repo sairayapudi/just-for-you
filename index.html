@@ -45,6 +45,43 @@ body {
   to { transform: translateY(-10vh) scale(1.2); }
 }
 
+/* Playful No button animation */
+#noBtn {
+  transition: left 0.3s ease, top 0.3s ease;
+}
+
+#noBtn:hover {
+  animation: wiggle 0.35s ease-in-out;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-3deg); }
+  75% { transform: rotate(2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* YES page image (smaller & elegant) */
+.yes-image {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 12px 0;
+  opacity: 0;
+  transform: scale(0.96);
+  animation: yesImageFade 1.2s ease forwards;
+}
+
+@keyframes yesImageFade {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+  
 /* CARD */
 .box {
   max-width: 420px;
@@ -119,6 +156,22 @@ img {
   border-radius: 18px;
   margin-top: 12px;
 }
+
+/* Quote image fade-in */
+.fade-image {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: imageFade 1.2s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes imageFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* HEART BEAT */
 .heart {
@@ -195,7 +248,7 @@ img {
     With you, even the simplest moments feel warm and steady,
     like the start of a beautiful journey.
   </p>
-  <img src="photo1.jpeg">
+  <img src="photo1.jpeg" class="fade-image">
   <button onclick="go(3)">Next →</button>
 </div>
 
@@ -205,7 +258,7 @@ img {
     Whenever the world feels heavy, being with you feels
     like coming home into the safest hug.
   </p>
-  <img src="photo2.jpeg">
+  <img src="photo2.jpeg" class="fade-image">
   <button onclick="go(4)">Next →</button>
 </div>
 
@@ -215,7 +268,7 @@ img {
     I didn’t plan on falling for you…
     but you smiled, laughed, and here I am, completely gone.
   </p>
-  <img src="photo3.jpg">
+  <img src="photo3.jpg" class="fade-image">
   <button onclick="go(5)">Next →</button>
 </div>
 
@@ -225,22 +278,27 @@ img {
     You don’t just light up my world, you rule it.
     My heart chose you, every single day.
   </p>
-  <img src="photo4.jpeg">
+  <img src="photo4.jpeg" class="fade-image">
   <button onclick="go(6)">Continue →</button>
 </div>
 
 <!-- ASK -->
 <div class="box hidden" id="page6">
   <div class="heart">❤️</div>
+
+  <!-- YES page image -->
+  <img src="photo_yes.jpeg" class="yes-image">
+
   <p>I wanted to ask you something…</p>
   <h1 style="font-size:32px;">Will you be my Valentine?</h1>
+
   <button onclick="yes()">Yes 💘</button>
   <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
 </div>
 
 <!-- THANK YOU -->
 <div class="box hidden" id="page7">
-  <img src="dancing2.gif">
+  <img src="dancing2.gif" class="fade-image">
   <h1 class="name">Thank you Babelu 💖</h1>
   <p>This moment truly means a lot to me.</p>
   <button onclick="go(8)">Continue →</button>
@@ -248,7 +306,7 @@ img {
 
 <!-- LOVE YOU -->
 <div class="box hidden" id="page8">
-  <img src="photo5.jpeg">
+  <img src="photo5.jpeg" class="fade-image">
   <h1 class="name">Love you Babelu ❤️</h1>
   <p>I’m really happy I asked.<br>
     And even happier that you’re here.</p>
